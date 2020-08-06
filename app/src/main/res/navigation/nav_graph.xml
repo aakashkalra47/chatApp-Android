@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ChatFragment">
+
+    <fragment
+        android:id="@+id/ChatFragment"
+        android:name="com.example.chat_app.chat.ChatFragment"
+        android:label="Chats"
+        tools:layout="@layout/activity_chats_backup">
+        <action android:id="@+id/action_chats_to_message"
+            app:destination="@id/messageFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim">
+            <argument
+                android:name="title"
+                app:argType="string">
+            </argument>
+        </action>
+        <action android:id="@+id/action_chats_to_contacts"
+            app:destination="@id/contactsFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
+           </fragment>
+    <fragment
+        android:id="@+id/messageFragment"
+        android:name="com.example.chat_app.message.MessageFragment"
+        android:label="{title}"
+        tools:layout="@layout/activity_message_view">
+    </fragment>
+    <fragment
+        android:id="@+id/contactsFragment"
+        android:name="com.example.chat_app.ContactsFragment"
+        android:label="Contant Fragment Fragment"
+        tools:layout="@layout/activity_chats_backup"/>
+
+</navigation>

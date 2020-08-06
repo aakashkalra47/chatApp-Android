@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/chats_drawer"
+            android:title="Chats" />
+        <item
+            android:id="@+id/contact_drawer"
+            android:title="Contacts" />
+        <item
+            android:id="@+id/logout_drawer"
+            android:title="Logout" />
+
+    </group>
+</menu>
