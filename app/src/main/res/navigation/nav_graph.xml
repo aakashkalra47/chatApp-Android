@@ -36,7 +36,7 @@
     </fragment>
     <fragment
         android:id="@+id/contactsFragment"
-        android:name="com.example.chat_app.ContactsFragment"
+        android:name="com.example.chat_app.contacts.ContactsFragment"
         android:label="Contant Fragment Fragment"
         tools:layout="@layout/activity_chats_backup"/>
 

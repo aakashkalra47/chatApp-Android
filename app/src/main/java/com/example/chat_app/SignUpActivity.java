@@ -53,10 +53,12 @@ public class SignUpActivity extends AppCompatActivity {
                 }
             }
         });
+        Token();
     }
 
     public void signIn(String email, String password) {
-        User user = new User(email, password,Token());
+        User user = new User(email, password,token);
+        Log.i("token",token);
         Call<String> call = signIn_reterofit.userSignIn(user);
         call.enqueue(new Callback<String>() {
             @Override
@@ -65,8 +67,9 @@ public class SignUpActivity extends AppCompatActivity {
                     Intent intent = new Intent(SignUpActivity.this, ChatsActivity.class);
                     SharedPreferences sharedPreferences = getSharedPreferences("sharedPreferences", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
+
                     editor.putString("userId", response.body().toString());
-                    editor.putString("token", Token());
+                    editor.putString("token", token);
                     editor.commit();
                     startActivity(intent);
                 }
@@ -79,7 +82,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private String Token() {
+    private void Token() {
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                     @Override
@@ -98,6 +101,6 @@ public class SignUpActivity extends AppCompatActivity {
                         //Toast.makeText(ChatsActivity.this, msg, Toast.LENGTH_SHORT).show();
                     }
                 });
-        return token;
+        //return token;
     }
 }
